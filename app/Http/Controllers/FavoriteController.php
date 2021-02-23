@@ -27,18 +27,9 @@ class FavoriteController extends Controller
         // Make a new movie object
         $favorite = new Favorite;
 
-        // Validate the request
-        $request->validate([
-            'movie_id' => ['required'],
-            'user_id' => ['required'],
-            'poster' => ['required'],
-            'title' => ['required'],
-            'year' => ['required']
-        ]);
-
         // Put all the variables in the object
         $favorite->movie_id = $request->favorite['movie_id'];
-        $favorite->user_id = $request->favorite['user_id'];
+        $favorite->user_id = Auth::id();
         $favorite->poster = $request->favorite['poster'];
         $favorite->title = $request->favorite['title'];
         $favorite->year = $request->favorite['year'];
