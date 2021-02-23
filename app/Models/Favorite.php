@@ -10,4 +10,12 @@ class Favorite extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $fillable = [
+        'movie_id',
+        'user_id',
+        'poster',
+        'title',
+        'year',
+    ];
 }
